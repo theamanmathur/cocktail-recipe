@@ -1,0 +1,36 @@
+<div class="cocktail-detail-container">
+  <button mat-button (click)="goBack()">
+    <mat-icon>arrow_back</mat-icon>
+    Back
+  </button>
+  <mat-card class="cocktail-detail-card">
+    <div class="left-content">
+      <img [src]="cocktail?.imageUrl" alt="{{ cocktail?.name }}">
+    </div>
+    <div class="right-content">
+      <mat-card-header class="cocktail-title">
+        <mat-card-title>{{ cocktail?.name }} <mat-icon>star</mat-icon></mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <table class="detail-table">
+          <tr>
+            <td class="property">Type:</td>
+            <td class="value">{{ cocktail?.isAlcoholic ? 'Alcoholic' : 'Non-Alcoholic' }}</td>
+          </tr>
+          <tr>
+            <td class="property">Ingredients:</td>
+            <td class="value">
+              <ul>
+                <li *ngFor="let ingredient of cocktail?.ingredients">{{ ingredient }}</li>
+              </ul>
+            </td>
+          </tr>
+          <tr>
+            <td class="property">Instructions:</td>
+            <td class="value">{{ cocktail?.instructions }}</td>
+          </tr>
+        </table>
+      </mat-card-content>
+    </div>
+  </mat-card>
+</div>

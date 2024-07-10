@@ -1,0 +1,54 @@
+.cocktail-card {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  padding: 0;
+  border: 1px solid black;
+  border-radius: 8px;
+  position: relative;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  max-height: 107px;
+}
+
+//left side of the card
+
+.left-card-content {
+  flex: 0 0 30%;
+  height: 100%;
+  overflow: hidden;
+}
+
+//right side of the card
+
+.right-card-content {
+  padding: 2%;
+  flex: 1;
+  /* Take the remaining space */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.cocktail-card-header {
+  padding: 0%;
+  margin-bottom: 2%;
+}
+
+.cocktail-name {
+  font-weight: bold;
+  font-size: large;
+}
+
+.alcoholContent {
+  border: 1px solid black;
+  border-radius: 1%;
+  font-size: small;
+  width: max-content;
+  padding: 3%;
+}
+
+.ingredients {
+  font-size: small;
+  padding: 0%;
+}

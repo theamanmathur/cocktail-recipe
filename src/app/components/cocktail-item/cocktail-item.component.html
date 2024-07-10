@@ -1,0 +1,19 @@
+<mat-card (click)="showDetails()" class="cocktail-card">
+  <div class="left-card-content">
+    <img [src]="cocktail.imageUrl" alt="{{ cocktail.name }}">
+  </div>
+  <div class="right-card-content">
+    <mat-card-header class="cocktail-card-header">
+      <mat-card-title class="cocktail-name">{{ cocktail.name }}</mat-card-title>
+      <mat-card-subtitle class="alcoholContent" *ngIf="cocktail.isAlcoholic">Alcoholic</mat-card-subtitle>
+      <mat-card-subtitle class="alcoholContent" *ngIf="!cocktail.isAlcoholic">Non-Alcoholic</mat-card-subtitle>
+    </mat-card-header>
+
+    <mat-card-content class="ingredients">
+        <ng-container *ngFor="let ingredient of cocktail.ingredients; let isLast = last">
+          {{ ingredient }}<span *ngIf="!isLast"> | </span>
+        </ng-container>
+    </mat-card-content>
+  </div>
+
+</mat-card>

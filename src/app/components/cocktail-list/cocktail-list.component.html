@@ -1,0 +1,7 @@
+<div>
+  <app-search-bar (searchTermChange)="onSearchTermChange($event)"></app-search-bar>
+  <mat-list>
+    <app-cocktail-item class="cocktail-item" *ngFor="let cocktail of filteredCocktails; trackBy: trackById"
+      [cocktail]="cocktail"></app-cocktail-item>
+  </mat-list>
+</div>
