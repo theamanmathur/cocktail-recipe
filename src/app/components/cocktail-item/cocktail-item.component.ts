@@ -16,7 +16,4 @@ export class CocktailItemComponent {
 
   constructor(private router: Router) {}
 
-  showDetails() {
-    this.router.navigate(['/cocktails', this.cocktail.id]);
-  }
 }
