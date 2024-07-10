@@ -39,6 +39,7 @@
   font-weight: bold;
   font-size: large;
   cursor: pointer;
+  width:100%;
 }
 
 .alcoholContent {
@@ -52,4 +53,16 @@
 .ingredients {
   font-size: x-small;
   padding: 0%;
+}
+
+.icon-star{
+  font-size: x-large;
+  color: #ccc;
+  cursor: pointer;
+  margin-left: 10px;
+  font-style: normal;
+}
+
+.icon-star.active{
+  color: gold;
 }

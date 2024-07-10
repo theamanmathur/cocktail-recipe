@@ -1,19 +1,42 @@
 <mat-card class="cocktail-card">
   <div class="left-card-content">
-    <img [src]="cocktail.imageUrl" alt="{{ cocktail.name }}">
+    <img [src]="cocktail.imageUrl" alt="{{ cocktail.name }}" />
   </div>
   <div class="right-card-content">
     <mat-card-header class="cocktail-card-header">
-      <mat-card-title [routerLink]="['/cocktails',cocktail.id]" class="cocktail-name">{{ cocktail.name }}</mat-card-title>
-      <mat-card-subtitle class="alcoholContent" *ngIf="cocktail.isAlcoholic">Alcoholic</mat-card-subtitle>
-      <mat-card-subtitle class="alcoholContent" *ngIf="!cocktail.isAlcoholic">Non-Alcoholic</mat-card-subtitle>
+      <mat-card-title>
+        <span
+          [routerLink]="['/cocktails', cocktail.id]"
+          class="cocktail-name"
+          >{{ cocktail.name }}</span
+        >
+        <i
+          [id]="'star-' + cocktail.id"
+          class="icon-star"
+          [class.active]="isFavourite(cocktail.id)"
+          (click)="toggleFavourite(cocktail.id)"
+          title="Toggle Favourite"
+          >★</i
+        >
+      </mat-card-title>
+      <mat-card-subtitle
+        class="alcoholContent"
+        *ngIf="cocktail.isAlcoholic else nonAlcoholic"
+        >Alcoholic</mat-card-subtitle
+      >
+      <ng-template #nonAlcoholic>
+        <mat-card-subtitle class="alcoholContent"
+          >Non-Alcoholic</mat-card-subtitle
+        >
+      </ng-template>
     </mat-card-header>
 
     <mat-card-content class="ingredients">
-        <ng-container *ngFor="let ingredient of cocktail.ingredients; let isLast = last">
-          {{ ingredient }}<span *ngIf="!isLast"> | </span>
-        </ng-container>
+      <ng-container
+        *ngFor="let ingredient of cocktail.ingredients; let isLast = last"
+      >
+        {{ ingredient }}<span *ngIf="!isLast"> | </span>
+      </ng-container>
     </mat-card-content>
   </div>
-
 </mat-card>

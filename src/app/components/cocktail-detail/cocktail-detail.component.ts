@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, RouterModule } from '@angular/router';
 import { Cocktail } from '../../models/cocktail';
 import { CocktailService } from '../../services/cocktail.service';
 import { CommonModule } from '@angular/common';
@@ -8,7 +8,7 @@ import { MaterialModule } from '../../shared/material.module';
 @Component({
   selector: 'app-cocktail-detail',
   standalone: true,
-  imports: [CommonModule, MaterialModule],
+  imports: [CommonModule, RouterModule,MaterialModule],
   templateUrl: './cocktail-detail.component.html',
   styleUrl: './cocktail-detail.component.scss',
 })
@@ -28,7 +28,4 @@ export class CocktailDetailComponent {
     }
   }
 
-  goBack(): void {
-    window.history.back();
-  }
 }
