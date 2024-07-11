@@ -1,29 +1,33 @@
 <div class="cocktail-detail-container">
-  <button mat-button [routerLink]="['/cocktails']">
-    <mat-icon>arrow_back</mat-icon>
+  <button mat-button (click)="goBack()">
+    <mat-icon fontIcon="home"></mat-icon>
     Back
   </button>
   <mat-card class="cocktail-detail-card">
     <div class="left-content">
-      <img [src]="cocktail?.imageUrl" alt="{{ cocktail?.name }}" />
+      <img [src]="cocktail.imageUrl" alt="{{ cocktail.name }}" />
     </div>
     <div class="right-content">
       <mat-card-header class="cocktail-title">
-        <mat-card-title>{{ cocktail?.name }} </mat-card-title>
+        <mat-card-title>
+          <span>{{ cocktail.name}}</span>
+          <i [id]="'star-' + cocktail.id" class="icon-star" [class.active]="isCocktailFavourite(cocktail.id)"
+            (click)="toggleFavouriteCocktail(cocktail.id)" title="Toggle Favourite">★</i>
+        </mat-card-title>
       </mat-card-header>
       <mat-card-content>
         <table class="detail-table">
           <tr>
             <td class="property">Type:</td>
             <td class="value">
-              {{ cocktail?.isAlcoholic ? "Alcoholic" : "Non-Alcoholic" }}
+              {{ cocktail.isAlcoholic ? "Alcoholic" : "Non-Alcoholic" }}
             </td>
           </tr>
           <tr>
             <td class="property">Ingredients:</td>
             <td class="value">
               <ul>
-                <li *ngFor="let ingredient of cocktail?.ingredients">
+                <li *ngFor="let ingredient of cocktail.ingredients">
                   {{ ingredient }}
                 </li>
               </ul>
@@ -31,7 +35,7 @@
           </tr>
           <tr>
             <td class="property">Instructions:</td>
-            <td class="value">{{ cocktail?.instructions }}</td>
+            <td class="value">{{ cocktail.instructions }}</td>
           </tr>
         </table>
       </mat-card-content>

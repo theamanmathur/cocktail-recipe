@@ -4,13 +4,13 @@ import { FormsModule } from '@angular/forms';
 import { MaterialModule } from '../../shared/material.module';
 
 @Component({
-  selector: 'app-search-bar',
+  selector: 'cocktail-search',
   standalone: true,
   imports: [CommonModule,FormsModule,MaterialModule],
-  templateUrl: './search-bar.component.html',
-  styleUrl: './search-bar.component.scss',
+  templateUrl: './cocktail-search.component.html',
+  styleUrl: './cocktail-search.component.scss',
 })
-export class SearchBarComponent {
+export class CocktailSearchComponent {
   @Output() searchTermChange = new EventEmitter<string>();
   searchTerm: string = '';
 

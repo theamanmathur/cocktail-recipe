@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class CocktailService {
-  private apiUrl = '/cockails';
+  private apiUrl = '/cocktails';
 
   constructor(private http: HttpClient) { }
 

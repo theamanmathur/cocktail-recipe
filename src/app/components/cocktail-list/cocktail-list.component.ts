@@ -5,7 +5,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { CocktailItemComponent } from '../cocktail-item/cocktail-item.component';
 import { MaterialModule } from '../../shared/material.module';
-import { SearchBarComponent } from '../search-bar/search-bar.component';
+import { CocktailSearchComponent } from '../cocktail-search/cocktail-search.component';
 
 @Component({
   selector: 'app-cocktail-list',
@@ -17,7 +17,7 @@ import { SearchBarComponent } from '../search-bar/search-bar.component';
     FormsModule,
     CocktailItemComponent,
     MaterialModule,
-    SearchBarComponent,
+    CocktailSearchComponent,
   ],
 })
 export class CocktailListComponent {

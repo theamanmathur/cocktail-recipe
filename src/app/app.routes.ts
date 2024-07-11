@@ -5,9 +5,5 @@ import { CocktailListComponent } from './components/cocktail-list/cocktail-list.
 export const routes: Routes = [
   { path: 'cocktails', component: CocktailListComponent },
   { path: 'cocktails/:id', component: CocktailDetailComponent },
-  { path: '', redirectTo: '/cocktails', pathMatch: 'full' }
-];
-
-export const appRoutingProviders = [
-  provideRouter(routes)
+  { path: '', redirectTo: '/cocktails', pathMatch: 'full' },
 ];

@@ -1,6 +1,5 @@
 .cocktail-detail-container {
-  margin: 20px auto;
-  padding: 20px;
+  padding: 2%;
   background-color: #f5f5f5;
   border-radius: 8px;
 }
@@ -17,7 +16,6 @@ button {
 
 .cocktail-title {
   padding: 2% 0% 5% 7%;
-
 }
 
 .cocktail-title mat-card-title {
@@ -44,15 +42,6 @@ button {
   padding: 0% 0% 0% 4%;
 }
 
-mat-card-title {
-  display: flex;
-  align-items: center;
-}
-
-mat-card-title mat-icon {
-  margin-left: 8px;
-}
-
 .detail-table {
   width: 100%;
   border-collapse: collapse;
@@ -60,8 +49,6 @@ mat-card-title mat-icon {
 
 .detail-table .property {
   font-weight: bold;
-  width: min-content;
-  vertical-align: middle;
   padding: 2%;
 }
 
@@ -86,4 +73,14 @@ li {
   font-size: medium;
 }
 
+.icon-star{
+  font-size: x-large;
+  color: #ccc;
+  cursor: pointer;
+  margin-left: 10px;
+  font-style: normal;
+}
 
+.icon-star.active{
+  color: gold;
+}
