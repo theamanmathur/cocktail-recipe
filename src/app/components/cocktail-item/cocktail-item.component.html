@@ -12,13 +12,13 @@
           class="cocktail-name"
           >{{ cocktail.name }}</span
         >
-        <i
+        <span
           [id]="'star-' + cocktail.id"
           class="icon-star"
           [class.active]="isCocktailFavourite(cocktail.id)"
           (click)="toggleFavouriteCocktail(cocktail.id)"
           title="Toggle Favourite"
-          >★</i
+          ></span
         >
       </mat-card-title>
 

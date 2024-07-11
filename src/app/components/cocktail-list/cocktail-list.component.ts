@@ -31,7 +31,6 @@ export class CocktailListComponent {
     this.cocktailService.getCocktails().subscribe((data: Cocktail[]) => {
       this.cocktails = data;
       this.filteredCocktails = data;
-      // console.log("cocktails: "+this.cocktails);
     });
   }
 

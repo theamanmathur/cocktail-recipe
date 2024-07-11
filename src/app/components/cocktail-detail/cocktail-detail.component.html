@@ -11,8 +11,8 @@
       <mat-card-header class="cocktail-title">
         <mat-card-title>
           <span>{{ cocktail.name}}</span>
-          <i [id]="'star-' + cocktail.id" class="icon-star" [class.active]="isCocktailFavourite(cocktail.id)"
-            (click)="toggleFavouriteCocktail(cocktail.id)" title="Toggle Favourite">★</i>
+          <span [id]="'star-' + cocktail.id" class="icon-star" [class.active]="isCocktailFavourite(cocktail.id)"
+            (click)="toggleFavouriteCocktail(cocktail.id)" title="Toggle Favourite"></span>
         </mat-card-title>
       </mat-card-header>
       <mat-card-content>

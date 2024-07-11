@@ -50,11 +50,13 @@ button {
 .detail-table .property {
   font-weight: bold;
   padding: 2%;
+  text-align: justify;
 }
 
 .detail-table .value {
   padding-left: 2%;
   width: fit-content;
+  text-align: justify
 }
 
 .detail-table td {
