@@ -1,7 +1,7 @@
 <div>
   <cocktail-search (searchTermChange)="onSearchTermChange($event)"></cocktail-search>
   <mat-list>
-    <app-cocktail-item class="cocktail-item" *ngFor="let cocktail of filteredCocktails; trackBy: trackById"
+    <app-cocktail-item class="cocktail-item" *ngFor="let cocktail of cocktails | cocktailFilter: searchTerm; trackBy: trackByCocktailId"
       [cocktail]="cocktail"></app-cocktail-item>
   </mat-list>
 </div>

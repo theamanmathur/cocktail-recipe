@@ -6,6 +6,8 @@ import { FormsModule } from '@angular/forms';
 import { CocktailItemComponent } from '../cocktail-item/cocktail-item.component';
 import { MaterialModule } from '../../shared/material.module';
 import { CocktailSearchComponent } from '../cocktail-search/cocktail-search.component';
+import { CocktailFilterPipe } from '../../pipes/cocktail-filter.pipe';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-cocktail-list',
@@ -18,34 +20,35 @@ import { CocktailSearchComponent } from '../cocktail-search/cocktail-search.comp
     CocktailItemComponent,
     MaterialModule,
     CocktailSearchComponent,
+    CocktailFilterPipe,
   ],
 })
 export class CocktailListComponent {
   cocktails: Cocktail[] = [];
-  filteredCocktails: Cocktail[] = [];
   searchTerm: string = '';
+  private cocktailDataSubscription!: Subscription;
 
   constructor(private cocktailService: CocktailService) {}
 
   ngOnInit(): void {
-    this.cocktailService.getCocktails().subscribe((data: Cocktail[]) => {
-      this.cocktails = data;
-      this.filteredCocktails = data;
-    });
+    this.cocktailDataSubscription = this.cocktailService
+      .getCocktails()
+      .subscribe((data: Cocktail[]) => {
+        this.cocktails = data;
+      });
+  }
+
+  ngOnDestroy(): void {
+    if (this.cocktailDataSubscription) {
+      this.cocktailDataSubscription.unsubscribe();
+    }
   }
 
   onSearchTermChange(searchTerm: string): void {
     this.searchTerm = searchTerm;
-    this.filterCocktails();
   }
 
-  filterCocktails(): void {
-    this.filteredCocktails = this.cocktails.filter((cocktail) =>
-      cocktail.name.toLowerCase().includes(this.searchTerm.toLowerCase())
-    );
-  }
-
-  trackById(index: number, item: any): string {
+  trackByCocktailId(index: number, item: any): string {
     return item.id;
   }
 }
