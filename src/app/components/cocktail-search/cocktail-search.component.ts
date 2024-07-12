@@ -6,7 +6,7 @@ import { MaterialModule } from '../../shared/material.module';
 @Component({
   selector: 'cocktail-search',
   standalone: true,
-  imports: [CommonModule,FormsModule,MaterialModule],
+  imports: [CommonModule, FormsModule, MaterialModule],
   templateUrl: './cocktail-search.component.html',
   styleUrl: './cocktail-search.component.scss',
 })
