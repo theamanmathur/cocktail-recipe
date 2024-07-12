@@ -56,7 +56,7 @@ button {
 .detail-table .value {
   padding-left: 2%;
   width: fit-content;
-  text-align: justify
+  text-align: left;
 }
 
 .detail-table td {
@@ -76,13 +76,6 @@ li {
 }
 
 .icon-star{
-  font-size: x-large;
-  color: #ccc;
   cursor: pointer;
   margin-left: 10px;
-  font-style: normal;
-}
-
-.icon-star.active{
-  color: gold;
 }

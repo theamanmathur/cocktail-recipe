@@ -39,15 +39,15 @@
   font-weight: bold;
   font-size: large;
   cursor: pointer;
-  width:100%;
+  width: 100%;
 }
 
 .alcoholContent {
   border: 1px solid black;
-  border-radius: 1%;
-  font-size: small;
+  border-radius: 20px;
+  font-size: x-small;
   width: max-content;
-  padding: 3%;
+  padding: 2%;
 }
 
 .ingredients {
@@ -55,14 +55,7 @@
   padding: 0%;
 }
 
-.icon-star{
-  font-size: x-large;
-  color: #ccc;
+.icon-star {
   cursor: pointer;
   margin-left: 10px;
-  font-style: normal;
-}
-
-.icon-star.active{
-  color: gold;
 }

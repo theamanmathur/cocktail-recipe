@@ -1,5 +1,4 @@
-<mat-card class="cocktail-card">
-
+<mat-card class="cocktail-card" appCocktailHighlight>
   <div class="left-card-content">
     <img [src]="cocktail.imageUrl" alt="{{ cocktail.name }}" />
   </div>
@@ -15,20 +14,22 @@
         <span
           [id]="'star-' + cocktail.id"
           class="icon-star"
-          [class.active]="isCocktailFavourite(cocktail.id)"
+          [ngClass]="{ active: isCocktailFavourite(cocktail.id) }"
           (click)="toggleFavouriteCocktail(cocktail.id)"
           title="Toggle Favourite"
-          ></span
-        >
+        ></span>
       </mat-card-title>
 
       <mat-card-subtitle
         class="alcoholContent"
-        *ngIf="cocktail.isAlcoholic else nonAlcoholic"
+        [ngStyle]="{ 'background-color': 'skyblue' }"
+        *ngIf="cocktail.isAlcoholic; else nonAlcoholic"
         >Alcoholic</mat-card-subtitle
       >
       <ng-template #nonAlcoholic>
-        <mat-card-subtitle class="alcoholContent"
+        <mat-card-subtitle
+          class="alcoholContent"
+          [ngStyle]="{ 'background-color': 'lightgreen' }"
           >Non-Alcoholic</mat-card-subtitle
         >
       </ng-template>

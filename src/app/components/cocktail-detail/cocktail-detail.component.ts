@@ -4,7 +4,7 @@ import { Cocktail } from '../../models/cocktail';
 import { CocktailService } from '../../services/cocktail.service';
 import { CommonModule } from '@angular/common';
 import { MaterialModule } from '../../shared/material.module';
-import { FavouritesService } from '../../services/favourites.service';
+import { FavouriteService } from '../../services/favourites.service';
 
 @Component({
   selector: 'app-cocktail-detail',
@@ -18,7 +18,7 @@ export class CocktailDetailComponent {
   constructor(
     private route: ActivatedRoute,
     private cocktailService: CocktailService,
-    private favouriteService: FavouritesService,
+    private favouriteService: FavouriteService,
     private router: Router
   ) {}
 

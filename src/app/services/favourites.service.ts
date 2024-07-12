@@ -3,41 +3,44 @@ import { Injectable } from '@angular/core';
 @Injectable({
   providedIn: 'root',
 })
-export class FavouritesService {
-  constructor() {}
+export class FavouriteService {
+  private favouriteCocktails: string[] = [];
+
+  constructor() {
+    this.loadFavourites();
+  }
+
+  private loadFavourites(): void {
+    const storedFavourites = localStorage.getItem('favouriteCocktails');
+    this.favouriteCocktails = storedFavourites
+      ? JSON.parse(storedFavourites)
+      : [];
+  }
 
   isFavourite(cocktailId: string): boolean {
-    const storedFavourites = localStorage.getItem('favouriteCocktails');
-    if (storedFavourites) {
-      const favouriteCocktails: string[] = JSON.parse(storedFavourites);
-      return favouriteCocktails.includes(cocktailId);
-    }
-    return false;
+    return this.favouriteCocktails.includes(cocktailId);
   }
 
   toggleFavourite(cocktailId: string): void {
-    let favouriteCocktails: string[] = [];
-
-    const storedFavourites = localStorage.getItem('favouriteCocktails');
-    if (storedFavourites) {
-      favouriteCocktails = JSON.parse(storedFavourites);
-    }
-
-    const starElement = document.getElementById('star-' + cocktailId);
     if (this.isFavourite(cocktailId)) {
-      favouriteCocktails = favouriteCocktails.filter((id) => id !== cocktailId);
-      if (starElement) {
-        starElement.classList.remove('active');
-      }
+      this.favouriteCocktails = this.favouriteCocktails.filter(
+        (id) => id !== cocktailId
+      );
+      // this.updateStarElement(cocktailId, false);
     } else {
-      favouriteCocktails.push(cocktailId);
-      if (starElement) {
-        starElement.classList.add('active');
-      }
+      this.favouriteCocktails.push(cocktailId);
+      // this.updateStarElement(cocktailId, true);
     }
     localStorage.setItem(
       'favouriteCocktails',
-      JSON.stringify(favouriteCocktails)
+      JSON.stringify(this.favouriteCocktails)
     );
   }
+
+  // private updateStarElement(cocktailId: string, isActive: boolean): void {
+  //   const starElement = document.getElementById('star-' + cocktailId);
+  //   if (starElement) {
+  //     starElement.classList.toggle('active', isActive);
+  //   }
+  // }
 }
