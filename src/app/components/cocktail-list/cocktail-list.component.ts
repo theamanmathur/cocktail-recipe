@@ -48,7 +48,7 @@ export class CocktailListComponent {
     this.searchTerm = searchTerm;
   }
 
-  trackByCocktailId(index: number, item: any): string {
+  trackByCocktailId(index: number, item: Cocktail): string {
     return item.id;
   }
 }
