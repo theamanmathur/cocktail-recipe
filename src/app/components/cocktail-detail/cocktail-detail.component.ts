@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import { Cocktail } from '../../models/cocktail';
 import { CocktailService } from '../../services/cocktail.service';
@@ -15,6 +15,8 @@ import { FavouriteService } from '../../services/favourites.service';
 })
 export class CocktailDetailComponent {
   cocktail!: Cocktail;
+  @Input() cocktailId: string; //cocktailId is being set here by Router itself
+
   constructor(
     private route: ActivatedRoute,
     private cocktailService: CocktailService,
@@ -23,14 +25,17 @@ export class CocktailDetailComponent {
   ) {}
 
   ngOnInit(): void {
-    this.route.paramMap.subscribe((paramMap) => {
-      const id = paramMap.get('id');
-      if (id) {
-        this.cocktailService.getCocktailById(id).subscribe((data: Cocktail) => {
+    //not using the following commented code since route params are automatically bound by the Router as we are passing the withComponentInputBinding() config in the provideRouter method arguments.
+    // this.route.paramMap.subscribe((paramMap) => {
+    //   const id = paramMap.get('id');
+    if (this.cocktailId) {
+      this.cocktailService
+        .getCocktailById(this.cocktailId)
+        .subscribe((data: Cocktail) => {
           this.cocktail = data;
         });
-      }
-    });
+    }
+    // });
   }
 
   isCocktailFavourite(cocktailId: string) {
